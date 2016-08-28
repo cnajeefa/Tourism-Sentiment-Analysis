@@ -30,7 +30,7 @@ trait Script {
   protected lazy val sc = new SparkContext(
     new SparkConf()
       .setIfMissing("spark.app.name", scriptName)
-      .setIfMissing("spark.eventLog.dir", "/tw/logs")
+      .setIfMissing("spark.eventLog.dir", "~/tw/logs")
       .setIfMissing("spark.eventLog.enabled", "true")
       .setIfMissing("spark.streaming.stopGracefullyOnShutdown", "true")
       .setIfMissing("spark.streaming.blockInterval", "30s")
@@ -47,7 +47,7 @@ trait Script {
     }
 
     // Ensure the event log directory exists
-    new File("/tw/logs").mkdirs()
+    new File("~/tw/logs").mkdirs()
   }
 
 }

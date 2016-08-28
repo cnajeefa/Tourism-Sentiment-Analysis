@@ -20,7 +20,7 @@ object TwitterEmoParser extends Script with Logging {
 
     // Import data
     logInfo("Parsing text files")
-    val data = sc.textFile("/tw/sentiment/emo/collected/*.text")
+    val data = sc.textFile("~/tw/sentiment/emo/collected/*.text")
       .coalesce(sc.defaultParallelism)
       .map(_.stripPrefix("RT").trim)
       .distinct()
@@ -33,7 +33,7 @@ object TwitterEmoParser extends Script with Logging {
 
     logInfo("Saving text files")
     data.toDF("raw_text", "label").write.mode(SaveMode.Overwrite)
-      .parquet("/tw/sentiment/emo/parsed/data.parquet")
+      .parquet("~/tw/sentiment/emo/parsed/data.parquet")
 
     logInfo("Parsing finished")
     sc.stop()

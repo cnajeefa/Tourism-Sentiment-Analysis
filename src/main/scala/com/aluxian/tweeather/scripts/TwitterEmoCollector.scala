@@ -21,7 +21,7 @@ object TwitterEmoCollector extends Script with Logging {
     stream
       .map(_.getText.replaceAll("[\\n\\r]+", " "))
       .repartition(sc.defaultParallelism)
-      .saveAsTextFiles("/tw/sentiment/emo/collected/", "text")
+      .saveAsTextFiles("~/tw/sentiment/emo/collected/", "text")
 
     ssc.start()
 
@@ -32,9 +32,44 @@ object TwitterEmoCollector extends Script with Logging {
 
   def queryBuilder(): FilterQuery = {
     new FilterQuery()
-      .track(positiveEmoticons ++ negativeEmoticons: _*)
+      .track(keyWords:_*)
       .language("en")
   }
+
+  //filter using popular keywords used for tourism and travel
+  val keyWords = Seq(
+  "tourism",
+  "touristic spot"
+  "travel",
+  "trip",
+  "holiday",
+  "tour",
+  "traveling",
+  "vacation",
+  "holiday view",
+  "holiday destination",
+  "visiting",
+  "tourist",
+  "traveler",
+  "traveller",
+  "travelblog",
+  "sightseen",
+  "sightseeing",
+  "summerholiday",
+  "winterholiday",
+  "trekking",
+  "hiking",
+  "niceview"
+  "travel photography"
+  "ttot"
+  "TravelTuesday"
+  "TBEX"
+  "MexMonday"
+  "BeachThursday"
+  "rtw"
+  "travelmassive"
+  "wanderlust"
+  )
 
   val positiveEmoticons = Seq(
     "\uD83D\uDE0D", // SMILING FACE WITH HEART-SHAPED EYES
