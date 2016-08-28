@@ -39,7 +39,7 @@ object TwitterEmoCollector extends Script with Logging {
   //filter using popular keywords used for tourism and travel
   val keyWords = Seq(
   "tourism",
-  "touristic spot"
+  "touristic spot",
   "travel",
   "trip",
   "holiday",
@@ -59,15 +59,15 @@ object TwitterEmoCollector extends Script with Logging {
   "winterholiday",
   "trekking",
   "hiking",
-  "niceview"
-  "travel photography"
-  "ttot"
-  "TravelTuesday"
-  "TBEX"
-  "MexMonday"
-  "BeachThursday"
-  "rtw"
-  "travelmassive"
+  "niceview",
+  "travel photography",
+  "ttot",
+  "TravelTuesday",
+  "TBEX",
+  "MexMonday",
+  "BeachThursday",
+  "rtw",
+  "travelmassive",
   "wanderlust"
   )
 
