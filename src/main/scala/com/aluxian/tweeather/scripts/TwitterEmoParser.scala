@@ -13,7 +13,6 @@ object TwitterEmoParser extends Script with Logging {
 
   val positiveEmoticons = TwitterEmoCollector.positiveEmoticons
   val negativeEmoticons = TwitterEmoCollector.negativeEmoticons
-  var count: Int = 0
 
   override def main(args: Array[String]) {
     super.main(args)
@@ -28,9 +27,7 @@ object TwitterEmoParser extends Script with Logging {
       .map(text => {
         val hasPositive = positiveEmoticons.exists(text.contains)
         val hasNegative = negativeEmoticons.exists(text.contains)
-        if (hasPositive ^ hasNegative) {(text, hasPositive.toDouble)
-        count=count+1
-        } else null
+        if (hasPositive ^ hasNegative) (text, hasPositive.toDouble) else null
       })
       .filter(_ != null)
 
@@ -39,7 +36,6 @@ object TwitterEmoParser extends Script with Logging {
       .parquet("tw/sentiment/emo/parsed/data.parquet")
 
     logInfo("Parsing finished")
-    logInfo(s"Count= "+ count.toString)
     sc.stop()
   }
 
