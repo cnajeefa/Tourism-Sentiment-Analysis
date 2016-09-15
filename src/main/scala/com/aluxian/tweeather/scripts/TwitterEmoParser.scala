@@ -13,7 +13,7 @@ object TwitterEmoParser extends Script with Logging {
 
   val positiveEmoticons = TwitterEmoCollector.positiveEmoticons
   val negativeEmoticons = TwitterEmoCollector.negativeEmoticons
-  var count = 0
+  var count: Int = 0
 
   override def main(args: Array[String]) {
     super.main(args)
@@ -39,7 +39,7 @@ object TwitterEmoParser extends Script with Logging {
       .parquet("tw/sentiment/emo/parsed/data.parquet")
 
     logInfo("Parsing finished")
-    logInfo(s"Count= "+ count)
+    logInfo(s"Count= "+ count.toString)
     sc.stop()
   }
 
