@@ -13,7 +13,7 @@ object TwitterEmoParser extends Script with Logging {
 
   val positiveEmoticons = TwitterEmoCollector.positiveEmoticons
   val negativeEmoticons = TwitterEmoCollector.negativeEmoticons
-  val count = 0
+  int count = 0
 
   override def main(args: Array[String]) {
     super.main(args)
