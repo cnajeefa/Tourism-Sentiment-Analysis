@@ -29,7 +29,7 @@ object TwitterEmoParser extends Script with Logging {
         val hasPositive = positiveEmoticons.exists(text.contains)
         val hasNegative = negativeEmoticons.exists(text.contains)
         if (hasPositive ^ hasNegative) {(text, hasPositive.toDouble)
-        count++
+        count=count+1
         } else null
       })
       .filter(_ != null)
