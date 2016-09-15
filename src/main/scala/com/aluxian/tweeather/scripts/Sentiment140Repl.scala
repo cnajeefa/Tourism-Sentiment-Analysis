@@ -17,7 +17,7 @@ object Sentiment140Repl extends Script with Logging {
 
     println("Loading 140 model...")
     sc // dummy call to init the context
-    val model = PipelineModel.load("/tw/sentiment/models/140.model")
+    val model = PipelineModel.load("tw/sentiment/models/140.model")
     println("Done. Write the sentence you want analysed and press <enter>")
 
     for (input <- Source.stdin.getLines) {
