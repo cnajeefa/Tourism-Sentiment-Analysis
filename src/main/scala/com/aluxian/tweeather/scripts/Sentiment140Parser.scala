@@ -14,14 +14,14 @@ object Sentiment140Parser extends Script with Logging {
     super.main(args)
 
     // Import data
-    val testData = sc.textFile("/tw/sentiment/140/downloaded/testdata.manual.2009.06.14.csv")
-    val trainingData = sc.textFile("/tw/sentiment/140/downloaded/training.1600000.processed.noemoticon.csv")
+    val testData = sc.textFile("tw/sentiment/140/downloaded/testdata.manual.2009.06.14.csv")
+    val trainingData = sc.textFile("tw/sentiment/140/downloaded/training.1600000.processed.noemoticon.csv")
 
     logInfo(s"Parsing test dataset")
-    parse(testData, "/tw/sentiment/140/parsed/test.parquet")
+    parse(testData, "tw/sentiment/140/parsed/test.parquet")
 
     logInfo(s"Parsing training dataset")
-    parse(trainingData, "/tw/sentiment/140/parsed/training.parquet")
+    parse(trainingData, "tw/sentiment/140/parsed/training.parquet")
 
     logInfo("Parsing finished")
     sc.stop()

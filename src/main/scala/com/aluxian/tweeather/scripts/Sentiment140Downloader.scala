@@ -27,7 +27,7 @@ object Sentiment140Downloader extends Script with Logging {
       .takeWhile(_ != null)
       .foreach { entry =>
         val fileName = entry.getName
-        val out = hdfs.create(new Path(s"/tw/sentiment/140/downloaded/$fileName"))
+        val out = hdfs.create(new Path(s"tw/sentiment/140/downloaded/$fileName"))
         logInfo(s"Downloading $fileName")
 
         Stream.continually(zip.read(buffer))

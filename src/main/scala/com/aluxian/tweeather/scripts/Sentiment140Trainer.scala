@@ -22,8 +22,8 @@ object Sentiment140Trainer extends Script with Logging {
 
     // Prepare data sets
     logInfo("Getting datasets")
-    val testData = sqlc.read.parquet("/tw/sentiment/140/parsed/test.parquet")
-    val trainingData = sqlc.read.parquet("/tw/sentiment/140/parsed/training.parquet")
+    val testData = sqlc.read.parquet("tw/sentiment/140/parsed/test.parquet")
+    val trainingData = sqlc.read.parquet("tw/sentiment/140/parsed/training.parquet")
 
     // Configure the pipeline
     val pipeline = new Pipeline().setStages(Array(
@@ -59,7 +59,7 @@ object Sentiment140Trainer extends Script with Logging {
 
     // Save the model
     logInfo("Saving model")
-    model.write.overwrite().save("/tw/sentiment/models/140.model")
+    model.write.overwrite().save("tw/sentiment/models/140.model")
 
     logInfo("Training finished")
     sc.stop()
