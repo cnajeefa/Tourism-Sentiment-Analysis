@@ -19,24 +19,44 @@ object TwitterEmoCountryParser extends Script with Logging {
     import sqlc.implicits._
 
     // Import data
+    //for neutral sentiment do (hasPositive & hasNegative)
     logInfo("Parsing text files")
     val data = sc.textFile("tw/sentiment/emoByCountry/*.gz")
       .coalesce(sc.defaultParallelism)
       .map(_.stripPrefix("RT").trim)
       .distinct()
-      .map(text => {
+      .filter(!_.startsWith("Collected"))
+      .map(_.split("\\|\\|"))
+      .map(row => (row(0), parseLong(row(1)).getOrElse(0L), row(2)))
+  /*    .map(text => {
         val hasPositive = positiveEmoticons.exists(text.contains)
         val hasNegative = negativeEmoticons.exists(text.contains)
         if (hasPositive ^ hasNegative) (text, hasPositive.toDouble) else null
       })
-      .filter(_ != null)
+      .filter(_ != null)*/
 
     logInfo("Saving text files")
-    data.toDF("raw_text", "label").write.mode(SaveMode.Overwrite)
+    data.toDF("country_code", "time_stamp", "tweet_text").write.mode(SaveMode.Overwrite)
       .parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
 
     logInfo("Parsing finished")
     sc.stop()
+  }
+
+  def parseLong(str: String):Option[Long] = {
+    try {
+      Some(str.toLong)
+    } catch {
+      case e: NumberFormatException => None
+    }
+  }
+
+  def parseDouble(str: String):Option[Double] = {
+    try {
+      Some(str.toDouble)
+    } catch {
+      case e: NumberFormatException => None
+    }
   }
 
 }
