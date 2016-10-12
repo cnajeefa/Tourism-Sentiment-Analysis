@@ -26,17 +26,18 @@ object TwitterEmoCountryParser extends Script with Logging {
       .map(_.stripPrefix("RT").trim)
       .distinct()
       .filter(!_.startsWith("Collected"))
-      .map(_.split("\\|\\|"))
-      .map(row => (row(0), parseLong(row(1)).getOrElse(0L), row(2)))
-  /*    .map(text => {
+      .map(text => {
         val hasPositive = positiveEmoticons.exists(text.contains)
         val hasNegative = negativeEmoticons.exists(text.contains)
-        if (hasPositive ^ hasNegative) (text, hasPositive.toDouble) else null
+        if (hasPositive ^ hasNegative) Seq(text, hasPositive.toDouble).mkString("||") else null
       })
-      .filter(_ != null)*/
+      .filter(_ != null)
+      .map(_.split("\\|\\|"))
+      .map(row => (row(0), parseLong(row(1)).getOrElse(0L), row(2), parseDouble(row(3)).getOrElse(-1.0)))
+      .filter(row => row._1 != -1.0) //remove rows that do not convert to 0/1 for sentiment_label
 
     logInfo("Saving text files")
-    data.toDF("country_code", "time_stamp", "tweet_text").write.mode(SaveMode.Overwrite)
+    data.toDF("country_code", "time_stamp", "tweet_status_text", "sentiment_label").write.mode(SaveMode.Overwrite)
       .parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
 
     logInfo("Parsing finished")
