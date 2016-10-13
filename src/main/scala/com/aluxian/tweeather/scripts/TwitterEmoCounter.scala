@@ -12,7 +12,7 @@ object TwitterEmoCounter extends Script with Logging {
 
     // Import data
     logInfo("Parsing text files")
-    val data = sc.textFile("tw/sentiment/emoByCountry/*.gz")
+    val data = sc.textFile("tw/sentiment/emo/Collected/*.text")
 
     // Print count
     logInfo(s"Count = ${data.count()}")
