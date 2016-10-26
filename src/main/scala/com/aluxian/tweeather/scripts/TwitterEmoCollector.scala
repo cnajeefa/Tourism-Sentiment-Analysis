@@ -108,6 +108,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE0E", // SMILING FACE WITH SUNGLASSES
     "\uD83D\uDE00", // GRINNING FACE
     "\uD83D\uDE07", // SMILING FACE WITH HALO
+    "\uD83D\uDE08", // SMILING FACE WITH HORNS
     "\uD83D\uDE17", // KISSING FACE
     "\uD83D\uDE19", // KISSING FACE WITH SMILING EYES
     "\uD83D\uDE0B", // FACE SAVOURING DELICIOUS FOOD
@@ -177,7 +178,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE40", // WEARY CAT FACE
     "\uD83D\uDC4E", // THUMBS DOWN SIGN
     "\uD83D\uDC94", // BROKEN HEART
-    "\uD83D\uDE08", // SMILING FACE WITH HORNS
+    "\uD83D\uDC7F", // ANGRY FACE WITH HORNS
     "\uD83D\uDCA9", // PILE OF POO
     "\uD83D\uDE15", // CONFUSED FACE
     "\uD83D\uDE1F", // WORRIED FACE
