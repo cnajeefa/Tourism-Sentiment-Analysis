@@ -5,6 +5,7 @@ import org.apache.spark.Logging
 import org.apache.spark.sql.SaveMode
 
 /**
+  * Created by Najeefa Nikhat Choudhury
   * This script parses the tweets collected by [[TwitterEmoByCountry]].
   * It removes duplicates and tweets which contain both positive and negative emojis.
   * The resulting dataset is coalesced to reduce the number of partitions.

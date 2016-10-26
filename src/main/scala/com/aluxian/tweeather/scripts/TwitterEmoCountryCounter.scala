@@ -3,6 +3,7 @@ package com.aluxian.tweeather.scripts
 import org.apache.spark.Logging
 
 /**
+  * Created by Najeefa Nikhat Choudhury
   * This script is used to count the number of rows that [[TwitterEmoCountryCollector]] has collected.
   */
 object TwitterEmoCountryCounter extends Script with Logging {

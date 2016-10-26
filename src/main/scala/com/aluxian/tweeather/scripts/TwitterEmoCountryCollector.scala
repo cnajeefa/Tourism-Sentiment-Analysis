@@ -7,6 +7,7 @@ import twitter4j.FilterQuery
 import java.util.Locale
 
 /**
+  * Created by Najeefa Nikhat Choudhury
   * This script uses Twitter Streaming API to collect tweets along with country code. It uses the Twitter app, whose credentials
   * are stored '''com/aluxian/tweeather/res/twitter.properties'''.
   */
