@@ -16,7 +16,7 @@ object TwitterEmoCountryCounter extends Script with Logging {
     val data = sc.textFile("tw/sentiment/emoByCountry/*.gz")
 
     // Print count
-    logInfo(s"Count = ${data.filter(!_.startsWith("collected")).filter(!_.startsWith("Collected").count()}")
+    logInfo(s"Count = ${data.filter(!_.startsWith("collected")).filter(!_.startsWith("Collected")).count()}")
     sc.stop()
   }
 
