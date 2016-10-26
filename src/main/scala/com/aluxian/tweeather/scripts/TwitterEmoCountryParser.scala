@@ -27,6 +27,7 @@ object TwitterEmoCountryParser extends Script with Logging {
       .map(_.stripPrefix("RT").trim)
       .distinct()
       .filter(!_.startsWith("Collected"))
+      .filter(!_.startsWith("collected"))
       .map(text => {
         val hasPositive = positiveEmoticons.exists(text.contains)
         val hasNegative = negativeEmoticons.exists(text.contains)
