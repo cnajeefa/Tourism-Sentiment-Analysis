@@ -20,7 +20,7 @@ object TwitterEmoParser extends Script with Logging {
 
     // Import data
     logInfo("Parsing text files")
-    val data = sc.textFile("tw/sentiment/emo/collected/*.text")
+    val data = sc.textFile("tw/sentiment/emo/*.gz")
       .coalesce(sc.defaultParallelism)
       .map(_.stripPrefix("RT").trim)
       .distinct()
