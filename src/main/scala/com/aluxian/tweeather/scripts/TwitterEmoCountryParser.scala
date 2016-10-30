@@ -22,7 +22,7 @@ object TwitterEmoCountryParser extends Script with Logging {
     // Import data
     //for neutral sentiment do (hasPositive & hasNegative)
     logInfo("Parsing text files")
-    val data = sc.textFile("tw/sentiment/emoByCountry/collected2.tar.gz")
+    val data = sc.textFile("tw/sentiment/emoByCountry/collected3.tar.gz")
       .coalesce(sc.defaultParallelism)
       .map(_.stripPrefix("RT").trim)
       .distinct()
