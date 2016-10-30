@@ -35,6 +35,7 @@ object SparkSubmit {
     Script("TwitterEmoCountryCollector", highMem = true),
     Script("TwitterEmoCountryParser", highMem = true),
     Script("TwitterEmoCountryCounter", highMem = true),
+    Script("TwitterEmoCountryTrainer", highMem = true),
     Script("TwitterFireCollector", highMem = true),
     Script("TwitterFireCounter", highMem = true),
     Script("TwitterFireExportHappiness", highMem = true),

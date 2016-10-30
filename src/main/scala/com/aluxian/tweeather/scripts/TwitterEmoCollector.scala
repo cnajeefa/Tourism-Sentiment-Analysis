@@ -38,7 +38,7 @@ object TwitterEmoCollector extends Script with Logging {
 
   def queryBuilder(): FilterQuery = {
     new FilterQuery()
-      .track(keyWords:_*)
+      .track(positiveEmoticons ++ negativeEmoticons: _*)
       .language("en")
   }
 
@@ -77,6 +77,7 @@ object TwitterEmoCollector extends Script with Logging {
   "travelmassive",
   "wanderlust"
   )
+
 
   val positiveEmoticons = Seq(
     "\uD83D\uDE0D", // SMILING FACE WITH HEART-SHAPED EYES
@@ -118,6 +119,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\u2665", // BLACK HEART SUIT
     "\u2764", // HEAVY BLACK HEART
     "\u263A", // WHITE SMILING FACE
+    // added additional emoticons used in Tourism/travel
     "\uD83D\uDE4C", //RAISED HANDS IN CELEBRATION
     "\uD83D\uDC4F", //CLAPPING HANDS
     "\uD83C\uDF34", //PALM TREE
@@ -133,7 +135,6 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83C\uDF83", //JOCK-O-LANTERN
     "\uD83C\uDF86", //FIREWORKS
     "\u2728", //SPARKLES
-    "\uD83C\uDF89", //PARTY POOPER
     "\uD83C\uDFBF", //SKIS
     "\uD83C\uDF7A", //BEER MUG
     "\uD83C\uDF77", //WINE GLASS
@@ -185,6 +186,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE27", // ANGUISHED FACE
     "\uD83D\uDE26", // FROWNING FACE WITH OPEN MOUTH
     "\uD83D\uDE2E", // FACE WITH OPEN MOUTH
+    // added additional emoticons used in Tourism/travel 
     "\uD83D\uDC4E", // THUMBS DOWN
     "\u26C8", // CLOUD WITH LIGHTNING AND RAIN
     "\uD83C\uDF27", //CLOUD WITH RAIN
