@@ -23,7 +23,7 @@ object TwitterEmoCountryTrainer extends Script with Logging {
 
     // Prepare data sets
     logInfo("Getting datasets")
-    val Array(trainingData, testData) = sqlc.read.parquet("/tw/sentiment/emoByCountry/parsed/data.parquet")
+    val Array(trainingData, testData) = sqlc.read.parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
       .randomSplit(Array(0.9, 0.1))
 
     // Configure the pipeline
@@ -60,7 +60,7 @@ object TwitterEmoCountryTrainer extends Script with Logging {
 
     // Save the model
     logInfo("Saving model")
-    model.write.overwrite().save("/tw/sentiment/models/emoCountry.model")
+    model.write.overwrite().save("tw/sentiment/models/emoCountry.model")
 
     logInfo("Training finished")
     sc.stop()
