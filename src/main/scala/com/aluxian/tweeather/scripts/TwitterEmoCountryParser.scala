@@ -39,8 +39,8 @@ object TwitterEmoCountryParser extends Script with Logging {
       .filter(row => row._1 != -1.0) //remove rows that do not convert to 0/1 for sentiment_label
 
     logInfo("Saving text files")
-    data.toDF("country_code", "time_stamp", "raw_text", "label").write.mode(SaveMode.Overwrite)
-      .parquet("tw/sentiment/emoByCountry/parsed/data1.parquet")
+    data.toDF("country_code", "time_stamp", "raw_text", "label").write.mode(SaveMode.Append)
+      .parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
 
     logInfo("Parsing finished")
     sc.stop()
