@@ -41,7 +41,7 @@ object TwitterEmoCountryParser extends Script with Logging {
 
     logInfo("Saving text files")
     data.toDF("country_code", "time_stamp", "raw_text", "label").write.mode(SaveMode.Overwrite)
-      .parquet("tw/sentiment/emoByCountry/parsed/dataTest.parquet")
+      .parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
 
     logInfo("Parsing finished")
     sc.stop()
