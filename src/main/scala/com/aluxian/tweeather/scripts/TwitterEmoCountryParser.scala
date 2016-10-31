@@ -23,7 +23,8 @@ object TwitterEmoCountryParser extends Script with Logging {
     //for neutral sentiment do (hasPositive & hasNegative)
     logInfo("Parsing text files")
     val data = sc.textFile("tw/sentiment/emoByCountry/*.tar.gz")
-      .coalesce(sc.defaultParallelism)
+      //.coalesce(sc.defaultParallelism)
+      .coalesce(99)
       .map(_.stripPrefix("RT").trim)
       .distinct()
       .filter(!_.startsWith("Collected"))
@@ -39,8 +40,8 @@ object TwitterEmoCountryParser extends Script with Logging {
       .filter(row => row._1 != -1.0) //remove rows that do not convert to 0/1 for sentiment_label
 
     logInfo("Saving text files")
-    data.toDF("country_code", "time_stamp", "raw_text", "label").write.mode(SaveMode.Append)
-      .parquet("tw/sentiment/emoByCountry/parsed/data.parquet")
+    data.toDF("country_code", "time_stamp", "raw_text", "label").write.mode(SaveMode.Overwrite)
+      .parquet("tw/sentiment/emoByCountry/parsed/dataTest.parquet")
 
     logInfo("Parsing finished")
     sc.stop()
