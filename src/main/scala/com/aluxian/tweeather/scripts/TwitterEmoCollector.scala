@@ -38,7 +38,7 @@ object TwitterEmoCollector extends Script with Logging {
 
   def queryBuilder(): FilterQuery = {
     new FilterQuery()
-      .track(positiveEmoticons ++ negativeEmoticons: _*)
+      .track(keyWords: _*)
       .language("en")
   }
 
@@ -114,11 +114,13 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE19", // KISSING FACE WITH SMILING EYES
     "\uD83D\uDE0B", // FACE SAVOURING DELICIOUS FOOD
     "\uD83D\uDC8B", // KISS MARK
-    "\u2615", //HOT BEVERAGE
-    "\uD83C\uDF7B", //CLINKING BEER MUGS
     "\u2665", // BLACK HEART SUIT
     "\u2764", // HEAVY BLACK HEART
     "\u263A", // WHITE SMILING FACE
+    ":)",
+    ":-)",
+    "=)",
+    ":D",
     // added additional emoticons used in Tourism/travel
     "\uD83D\uDE4C", //RAISED HANDS IN CELEBRATION
     "\uD83D\uDC4F", //CLAPPING HANDS
@@ -137,6 +139,8 @@ object TwitterEmoCollector extends Script with Logging {
     "\u2728", //SPARKLES
     "\uD83C\uDFBF", //SKIS
     "\uD83C\uDF7A", //BEER MUG
+    "\u2615", //HOT BEVERAGE
+    "\uD83C\uDF7B", //CLINKING BEER MUGS
     "\uD83C\uDF77", //WINE GLASS
     "\uD83C\uDF78", //COCKTAIL GLASS
     "\uD83C\uDF79", //TROPICAL DRINK
@@ -145,10 +149,15 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDC4C", //OK HAND
     "\uD83C\uDF41", //MAPLE LEAF
     "\uD83C\uDF42", //FALLEN LEAF
-    ":)",
-    ":-)",
-    "=)",
-    ":D"
+    "\uD83D\uDE06", //SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES
+    "\uD83D\uDE04", //SMILING FACE WITH OPEN MOUTH AND SMILING EYES
+    "\uD83D\uDE05", //SMILING FACE WITH OPEN MOUTH AND COLD SWEAT
+    "\uD83D\uDE09", //WINKING FACE
+    "\uD83D\uDE0B", //FACE SAVOURING DELICIOUS FOOD
+    "\uD83D\uDE0C", //RELIEVED FACE
+    "\uD83D\uDE0F", //SMIRKING FACE
+    "\uD83D\uDE1C", //FACE WITH STUCK-OUT TONGUE AND WINKING EYE
+    "\uD83D\uDE1B" //FACE WITH STUCK-OUT TONGUE
   )
 
   val negativeEmoticons = Seq(
@@ -186,7 +195,9 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE27", // ANGUISHED FACE
     "\uD83D\uDE26", // FROWNING FACE WITH OPEN MOUTH
     "\uD83D\uDE2E", // FACE WITH OPEN MOUTH
-    // added additional emoticons used in Tourism/travel 
+    ":(",
+    ":-(",
+    // added additional emoticons used in Tourism/travel
     "\uD83D\uDC4E", // THUMBS DOWN
     "\u26C8", // CLOUD WITH LIGHTNING AND RAIN
     "\uD83C\uDF27", //CLOUD WITH RAIN
@@ -194,8 +205,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83C\uDF29", //CLOUD WITH LIGHTNING
     "\u2602", //UMBRELLA
     "\u2614", //UMBRELLA WITH RAIN DROPS
-    ":(",
-    ":-("
+    "\uD83D\uDE2C" //GRIMACING FACE
   )
 
 }
