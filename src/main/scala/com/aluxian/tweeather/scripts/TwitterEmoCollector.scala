@@ -145,8 +145,6 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83C\uDF78", //COCKTAIL GLASS
     "\uD83C\uDF79", //TROPICAL DRINK
     "\uD83C\uDF69", //DOUGNUT
-    "\uD83D\uDC4D", //THUMBS UP
-    "\uD83D\uDC4C", //OK HAND
     "\uD83C\uDF41", //MAPLE LEAF
     "\uD83C\uDF42", //FALLEN LEAF
     "\uD83D\uDE06", //SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES
