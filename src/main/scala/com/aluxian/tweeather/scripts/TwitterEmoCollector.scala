@@ -195,7 +195,6 @@ object TwitterEmoCollector extends Script with Logging {
     ":(",
     ":-(",
     // added additional emoticons used in Tourism/travel
-    "\uD83D\uDC4E", // THUMBS DOWN
     "\u26C8", // CLOUD WITH LIGHTNING AND RAIN
     "\uD83C\uDF27", //CLOUD WITH RAIN
     "\uD83C\uDF28", //CLOUD WITH SNOW
