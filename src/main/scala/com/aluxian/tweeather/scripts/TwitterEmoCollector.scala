@@ -201,7 +201,7 @@ object TwitterEmoCollector extends Script with Logging {
     "\u2602", //UMBRELLA
     "\u2614", //UMBRELLA WITH RAIN DROPS
     "\uD83D\uDE2C", //GRIMACING FACE
-    "\u2639" //FROWNING FACE
+    "\u2639", //FROWNING FACE
     "\uD83E\uDD27" //SNEEZING FACE
   )
 
