@@ -166,7 +166,6 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83D\uDE48", // SEE-NO-EVIL MONKEY
     "\uD83D\uDE13", // FACE WITH COLD SWEAT
     "\uD83D\uDE16", // CONFOUNDED FACE
-    "\uD83D\uDE1D", // FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES
     "\uD83D\uDE1E", // DISAPPOINTED FACE
     "\uD83D\uDE20", // ANGRY FACE
     "\uD83D\uDE21", // POUTING FACE
@@ -201,7 +200,9 @@ object TwitterEmoCollector extends Script with Logging {
     "\uD83C\uDF29", //CLOUD WITH LIGHTNING
     "\u2602", //UMBRELLA
     "\u2614", //UMBRELLA WITH RAIN DROPS
-    "\uD83D\uDE2C" //GRIMACING FACE
+    "\uD83D\uDE2C", //GRIMACING FACE
+    "\u2639" //FROWNING FACE
+    "\uD83E\uDD27" //SNEEZING FACE
   )
 
 }
