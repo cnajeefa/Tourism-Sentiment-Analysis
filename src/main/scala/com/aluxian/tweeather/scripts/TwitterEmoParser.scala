@@ -21,7 +21,7 @@ object TwitterEmoParser extends Script with Logging {
     // Import data
     logInfo("Parsing text files")
     val data = sc.textFile("tw/sentiment/emo/*.gz")
-      .coalesce(20)
+      .coalesce(99)
       .map(_.stripPrefix("RT").trim)
       .distinct()
       .filter(!_.startsWith("Collected"))
